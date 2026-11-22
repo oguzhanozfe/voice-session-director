@@ -1,0 +1,57 @@
+{
+  "words_per_minute": 120,
+  "scene_setup_seconds": 15,
+  "take_reset_seconds": 4,
+  "windows": [
+    {
+      "id": "morning-A",
+      "performer": "Iris",
+      "start_minute": 540,
+      "end_minute": 542
+    },
+    {
+      "id": "morning-B",
+      "performer": "Ren",
+      "start_minute": 543,
+      "end_minute": 545
+    }
+  ],
+  "lines": [
+    {
+      "id": "IR-101",
+      "performer": "Iris",
+      "scene": "Landing bay",
+      "text": "Hold the line until the signal turns green.",
+      "takes": 2
+    },
+    {
+      "id": "IR-103P",
+      "performer": "Iris",
+      "scene": "Landing bay",
+      "text": "The hatch is sealed. Bring the ship around.",
+      "pickup": true,
+      "takes": 3
+    },
+    {
+      "id": "IR-110",
+      "performer": "Iris",
+      "scene": "Control room",
+      "text": "Something moved on the outer scan.",
+      "takes": 2
+    },
+    {
+      "id": "RN-105",
+      "performer": "Ren",
+      "scene": "Control room",
+      "text": "I see the second ship.",
+      "takes": 2
+    },
+    {
+      "id": "ZA-109",
+      "performer": "Zara",
+      "scene": "Hangar",
+      "text": "Wait for my signal.",
+      "takes": 2
+    }
+  ]
+}

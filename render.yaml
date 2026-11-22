@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: voice-session-director
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: MODEL_PROVIDER
+        value: "off"
+      - key: PUBLIC_BIND
+        value: "1"
+      - key: WORKSPACE_KEY
+        generateValue: true

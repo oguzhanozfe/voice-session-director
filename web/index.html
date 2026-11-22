@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Review workspace</title><link rel="stylesheet" href="/style.css"><script defer src="/ui.js"></script></head>
+<body><header><div class="mast"><div><p class="kicker">Project workspace</p><h1 id="title">Review workspace</h1><p id="description"></p></div><button id="export" class="primary">Download release ↓</button></div></header>
+<main><nav aria-label="Workspace sections"><button data-panel="review" aria-pressed="true">Review</button><button data-panel="files">Release preview</button><button data-panel="source">Source data</button><button data-panel="history">Saved revisions</button></nav>
+<p id="status" role="status">Loading example…</p>
+<section id="review"><h2 id="summary"></h2><div id="metrics"></div><div class="columns"><div><div class="section-head"><h2>Proposed changes</h2><span id="count"></span></div><div id="candidates"></div><button id="more" hidden>Show more changes</button></div>
+<aside><h2>Evidence inspector</h2><p id="indicator">Select a change to see its source records.</p><div id="evidence"></div><hr><h2>Model review</h2><p id="model-state"></p><label>Review focus <input id="focus" maxlength="600" placeholder="What should the model prioritize?"></label><button id="recommend">Request suggestions</button><div id="suggestions"></div></aside></div></section>
+<section id="files" hidden><h2>Release preview</h2><p>Inspect each file with your current approvals. The ZIP includes complete files and a checksum manifest.</p><div id="artifacts"></div></section>
+<section id="source" hidden><h2>Source data</h2><label for="input">Edit the project input as JSON or open a source file.</label><textarea id="input" rows="18" spellcheck="false"></textarea><div class="actions"><button id="analyze" class="dark">Analyze input</button><label class="button">Import file <input id="upload" type="file"></label><button id="reset">Load example</button></div></section>
+<section id="history" hidden><h2>Saved revisions</h2><p>Save the current source, approvals and notes. Copy the workspace ID to reopen its history.</p>
+<div class="fields"><label>Deployment key <input id="key" type="password" autocomplete="off" placeholder="Optional on localhost"></label><label>Workspace ID <input id="workspace" placeholder="Assigned on first save" spellcheck="false"></label></div>
+<div class="actions"><button id="save" class="dark">Save revision</button><button id="open">Open latest</button><button id="fork">Start separate workspace</button></div>
+<p id="revision"></p><div id="versions"></div><pre id="difference" hidden></pre></section>
+</main><footer><span id="footer-title"></span> · <a href="https://github.com/oguzhanozfe/voice-session-director">Source &amp; documentation ↗</a></footer></body></html>

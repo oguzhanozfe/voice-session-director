@@ -1,0 +1,17 @@
+{
+  "action": "Record IR-103P with Iris",
+  "id": "record:IR-103P",
+  "linked_source_records": [
+    "line:IR-103P",
+    "window:morning-A"
+  ],
+  "choices": {
+    "record:IR-103P": ""
+  },
+  "artifacts": {
+    "booth-schedule.csv": {
+      "sha256": "93afa0920abae6021a6ce4099f5f21250fee8bc6fef93b82cd37d5ff32de7e6d",
+      "changed_by_approval": true
+    }
+  }
+}

@@ -1,0 +1,86 @@
+name: Verify decision workspace
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run domain and platform tests
+        run: python -m unittest discover -p 'test_*.py' -v
+      - name: Run the review CLI and verify its ZIP
+        run: |
+          python app.py analyze example.json > "$RUNNER_TEMP/report.json"
+          python app.py export example.json --out "$RUNNER_TEMP/release.zip"
+          python - <<'PY'
+          import hashlib, json, os, pathlib, zipfile
+          temp = pathlib.Path(os.environ["RUNNER_TEMP"])
+          report = json.loads((temp / "report.json").read_text())
+          assert all(k in report for k in ("summary", "metrics", "records", "candidates"))
+          with zipfile.ZipFile(temp / "release.zip") as bundle:
+              assert bundle.testzip() is None
+              manifest = json.loads(bundle.read("_studio/manifest.json"))
+              assert manifest["sha256"]
+              for filename, digest in manifest["sha256"].items():
+                  assert hashlib.sha256(bundle.read(filename)).hexdigest() == digest
+          PY
+      - name: Build Docker image
+        run: docker build -t review-studio:ci .
+      - name: Verify public preview, saved revisions and container persistence
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker volume create studio-ci-data
+          cleanup() { docker logs studio-check || true; docker rm -f studio-check >/dev/null || true; docker volume rm studio-ci-data >/dev/null || true; }
+          trap cleanup EXIT
+          docker run -d --name studio-check -p 127.0.0.1:8181:8181 -e PORT=8181 -e WORKSPACE_KEY=ci-workspace-key -v studio-ci-data:/data review-studio:ci
+          wait_for_health() { curl --fail --silent --show-error --max-time 3 --retry 30 --retry-all-errors --retry-delay 1 http://127.0.0.1:8181/health; }
+          wait_for_health
+          python - <<'PY'
+          import io, json, os, pathlib, urllib.error, urllib.request, zipfile
+          base = "http://127.0.0.1:8181"
+          def call(path, body=None, key=False):
+              req = urllib.request.Request(base + path, data=None if body is None else json.dumps(body).encode(),
+                  headers={"Content-Type": "application/json", **({"X-Workspace-Key":"ci-workspace-key"} if key else {})})
+              with urllib.request.urlopen(req, timeout=15) as r:
+                  return r.read()
+          assert json.loads(call("/health")) == {"ok":True}
+          demo = json.loads(call("/api/example"))
+          assert demo["key_required"] and demo["provider"] == "off"
+          source = demo["source"]
+          assert json.loads(call("/api/analyze", {"source":source})) == json.loads((pathlib.Path(os.environ["RUNNER_TEMP"])/"report.json").read_text())
+          for path in ("/", "/style.css", "/ui.js"):
+              assert call(path)
+          body = {"source":source, "choices":{}}
+          try:
+              call("/api/save", body)
+          except urllib.error.HTTPError as e:
+              assert e.code == 403
+          else:
+              raise AssertionError("Hosted save accepted a missing key")
+          rev = json.loads(call("/api/save", body, True))
+          assert rev["revision"] == 1
+          (pathlib.Path(os.environ["RUNNER_TEMP"])/"workspace-id").write_text(rev["workspace"])
+          bundle = zipfile.ZipFile(io.BytesIO(call("/api/export", {"workspace":rev["workspace"]}, True)))
+          assert json.loads(bundle.read("_studio/manifest.json"))["revision"] == 1
+          PY
+          test "$(docker exec studio-check id -u)" != 0
+          docker restart studio-check >/dev/null
+          wait_for_health
+          python - <<'PY'
+          import json, os, pathlib, urllib.request
+          ws = (pathlib.Path(os.environ["RUNNER_TEMP"])/"workspace-id").read_text()
+          req = urllib.request.Request("http://127.0.0.1:8181/api/read", data=json.dumps({"workspace":ws}).encode(),
+              headers={"Content-Type":"application/json","X-Workspace-Key":"ci-workspace-key"})
+          with urllib.request.urlopen(req, timeout=15) as response:
+              saved = json.load(response)
+          assert saved["revision"] == 1 and saved["source"] == json.loads(pathlib.Path("example.json").read_text())
+          PY

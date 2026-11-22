@@ -1,0 +1,39 @@
+name: Publish live demo
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build interactive site from the current project
+        run: |
+          python demo/build_demo.py --out public
+          python demo/fetch_runtime.py public/python
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.host.outputs.page_url }}
+    steps:
+      - name: Publish
+        id: host
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,127 @@
+{
+  "ai/models/minilm/config.json": {
+    "bytes": 650,
+    "sha256": "7135149f7cffa1a573466c6e4d8423ed73b62fd2332c575bf738a0d033f70df7",
+    "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/751bff37182d3f1213fa05d7196b954e230abad9/config.json"
+  },
+  "ai/models/minilm/onnx/model_quantized.onnx": {
+    "bytes": 22972370,
+    "sha256": "afdb6f1a0e45b715d0bb9b11772f032c399babd23bfc31fed1c170afc848bdb1",
+    "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/751bff37182d3f1213fa05d7196b954e230abad9/onnx/model_quantized.onnx"
+  },
+  "ai/models/minilm/special_tokens_map.json": {
+    "bytes": 125,
+    "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+    "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/751bff37182d3f1213fa05d7196b954e230abad9/special_tokens_map.json"
+  },
+  "ai/models/minilm/tokenizer.json": {
+    "bytes": 711661,
+    "sha256": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+    "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json"
+  },
+  "ai/models/minilm/tokenizer_config.json": {
+    "bytes": 366,
+    "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+    "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json"
+  },
+  "ai/ort-wasm-simd-threaded.jsep.mjs": {
+    "bytes": 44484,
+    "sha256": "08fb86ec433c78bfb032c5d84a68b8e8e5a8d81268fa39e24314179a5767a5b9",
+    "url": "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2/dist/ort-wasm-simd-threaded.jsep.mjs"
+  },
+  "ai/ort-wasm-simd-threaded.jsep.wasm": {
+    "bytes": 21596019,
+    "sha256": "c46655e8a94afc45338d4cb2b840475f88e5012d524509916e505079c00bfa39",
+    "url": "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2/dist/ort-wasm-simd-threaded.jsep.wasm"
+  },
+  "ai/transformers.min.js": {
+    "bytes": 871803,
+    "sha256": "489ae9fa3deae4eed28f83b9f94a32342c63cffdabd56ad990f76d28c858a1c2",
+    "url": "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2/dist/transformers.min.js"
+  },
+  "licenses/MiniLM-Apache-2.0.txt": {
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+  },
+  "licenses/MiniLM-model-card.md": {
+    "bytes": 1767,
+    "sha256": "63ea99bf681a2e9eda4f6a537d5ed8fda95d1677111656da37e9cfd080c3af02",
+    "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/751bff37182d3f1213fa05d7196b954e230abad9/README.md"
+  },
+  "licenses/ONNX-Runtime-ThirdParty.txt": {
+    "bytes": 326866,
+    "sha256": "e9e90971a8e75a9a8ac0c6412e29c1202d079998389915aa485f46c816c3b4cc",
+    "url": "https://cdn.jsdelivr.net/gh/microsoft/onnxruntime@v1.22.0/ThirdPartyNotices.txt"
+  },
+  "licenses/ONNX-Runtime.txt": {
+    "bytes": 1073,
+    "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+    "url": "https://cdn.jsdelivr.net/gh/microsoft/onnxruntime@v1.22.0/LICENSE"
+  },
+  "licenses/OpenSSL.txt": {
+    "bytes": 6121,
+    "sha256": "c32913b33252e71190af2066f08115c69bc9fddadf3bf29296e20c835389841c",
+    "url": "https://raw.githubusercontent.com/openssl/openssl/OpenSSL_1_1_1w/LICENSE"
+  },
+  "licenses/Pyodide.txt": {
+    "bytes": 16725,
+    "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+    "url": "https://raw.githubusercontent.com/pyodide/pyodide/0.29.4/LICENSE"
+  },
+  "licenses/Python.txt": {
+    "bytes": 13809,
+    "sha256": "78b12c3a81360b357002334f0e70ea0e92eebf7a9b358805c03c48484945f3bb",
+    "url": "https://raw.githubusercontent.com/python/cpython/v3.13.2/LICENSE"
+  },
+  "licenses/TransformersJS.txt": {
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "url": "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2/LICENSE"
+  },
+  "python/hashlib-1.0.0-cp313-cp313-pyemscripten_2025_0_wasm32.whl": {
+    "bytes": 628958,
+    "sha256": "b3178c5f2da86e9567b052648abe154048b30b6591a9bd2000d275ac2a662a6b",
+    "url": "https://cdn.jsdelivr.net/pyodide/v0.29.4/full/hashlib-1.0.0-cp313-cp313-pyemscripten_2025_0_wasm32.whl"
+  },
+  "python/libopenssl-1.1.1w.zip": {
+    "bytes": 754537,
+    "sha256": "b45d7b987ff32bf43c40a56df4db6d627354d8e076b4e897d8d11b81fd596899",
+    "url": "https://cdn.jsdelivr.net/pyodide/v0.29.4/full/libopenssl-1.1.1w.zip"
+  },
+  "python/pyodide-lock.json": {
+    "bytes": 122027,
+    "sha256": "14d2c2dba101277999e17135e653d8f15389ad1437f53eae213bf0c3cdff723d",
+    "url": "https://cdn.jsdelivr.net/pyodide/v0.29.4/full/pyodide-lock.json"
+  },
+  "python/pyodide.asm.js": {
+    "bytes": 1074322,
+    "sha256": "fe75e97ef2c7a10c41f23b96344c553c7c1c62821bb206080dbb24941c06d5f3",
+    "url": "https://cdn.jsdelivr.net/pyodide/v0.29.4/full/pyodide.asm.js"
+  },
+  "python/pyodide.asm.wasm": {
+    "bytes": 8647684,
+    "sha256": "10090fe41e019ae669d512e1f747021a8db2aaab0f6dd6f85fa9368c55d681e3",
+    "url": "https://cdn.jsdelivr.net/pyodide/v0.29.4/full/pyodide.asm.wasm"
+  },
+  "python/pyodide.js": {
+    "bytes": 18597,
+    "sha256": "7be9e63eddf6bd8786a5ab71c8689c35731d187e3415fe58d7cb95423b50421a",
+    "url": "https://cdn.jsdelivr.net/pyodide/v0.29.4/full/pyodide.js"
+  },
+  "python/python_stdlib.zip": {
+    "bytes": 2424002,
+    "sha256": "92cb24faa546818f3ef4050fd5bd2b6487bd2042efed2113af141d035f30efb4",
+    "url": "https://cdn.jsdelivr.net/pyodide/v0.29.4/full/python_stdlib.zip"
+  },
+  "python/sqlite3-1.0.0-cp313-cp313-pyemscripten_2025_0_wasm32.whl": {
+    "bytes": 560803,
+    "sha256": "3d64fee45743c2d9662110709086b342a226389253b0ea7f531a92845b008fea",
+    "url": "https://cdn.jsdelivr.net/pyodide/v0.29.4/full/sqlite3-1.0.0-cp313-cp313-pyemscripten_2025_0_wasm32.whl"
+  },
+  "python/ssl-1.0.0-cp313-cp313-pyemscripten_2025_0_wasm32.whl": {
+    "bytes": 818374,
+    "sha256": "aebcda0b42e9409aa82caaaa177ef6ee8c275921a59ca476801f5eb0fc39f6d3",
+    "url": "https://cdn.jsdelivr.net/pyodide/v0.29.4/full/ssl-1.0.0-cp313-cp313-pyemscripten_2025_0_wasm32.whl"
+  }
+}

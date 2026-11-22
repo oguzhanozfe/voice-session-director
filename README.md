@@ -2,11 +2,13 @@
 
 Batch dialogue and pickups into performer-specific recording windows and export an approved booth schedule.
 
-[![Verify](https://github.com/oguzhanozfe/voice-session-director/actions/workflows/check.yml/badge.svg)](https://github.com/oguzhanozfe/voice-session-director/actions/workflows/check.yml) · [Deploy to Render](https://render.com/deploy?repo=https://github.com/oguzhanozfe/voice-session-director) · [Input guide](GUIDE.md)
+**[Open the live demo](https://oguzhanozfe.github.io/voice-session-director/)** · [![Verify](https://github.com/oguzhanozfe/voice-session-director/actions/workflows/check.yml/badge.svg)](https://github.com/oguzhanozfe/voice-session-director/actions/workflows/check.yml) · [Deploy to Render](https://render.com/deploy?repo=https://github.com/oguzhanozfe/voice-session-director) · [Input guide](GUIDE.md)
 
 A pickup line needs its original performer back in the booth. Fit it into the available recording windows and hand the confirmed schedule to the director.
 
 ![Example result for Voice Session Director](docs/result.png)
+
+The live demo lets you edit the input, search proposed changes with an on-device model and download the result. [Browser demo details](demo/DEMO.md)
 
 ## Try it
 

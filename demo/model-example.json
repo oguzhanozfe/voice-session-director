@@ -1,0 +1,19 @@
+{
+  "model": "gemma-4-e4b-it",
+  "provider": "local",
+  "source_sha256": "da5209b1d50ed7aa725342dd5b188a7e8d26e0f8f7cbbcef6bf1c03cdad24234",
+  "considered": 4,
+  "total": 4,
+  "recommendations": [
+    {
+      "id": "record:IR-103P",
+      "evidence_id": "line:IR-103P",
+      "why": "This action involves a pickup line, requiring specific attention to priority scheduling."
+    },
+    {
+      "id": "record:IR-110",
+      "evidence_id": "line:IR-110",
+      "why": "This recording places Iris in the Control room, which represents a scene change from her prior location in Landing bay."
+    }
+  ]
+}
